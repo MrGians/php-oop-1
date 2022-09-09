@@ -20,7 +20,17 @@ class Movie {
     $this->description = $_description;
     $this->year = $_year;
     $this->genre = $_genre;
-    $this->vintageMovie = true; //TODO $this->isVintage();
+    $this->vintageMovie = $this->isVintage();
 
+  }
+
+  public function isVintage(){
+    // Before 2000 the Movie is Vintage
+    $year_limit = 2000;
+    return $this->year < $year_limit;
+  }
+
+  public function getAbstractDescription(){
+    return substr($this->description, 0, 20) . "...";
   }
 }
